@@ -1,14 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="intro">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Darkcaster</title>
+  <link rel="shortcut icon" href="http://www.public-domain-photos.com/free-cliparts-1-big/computer/icons/lightning_icon_benji_par_01.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-  Goi
+
+  <div ng-controller="HomeController">
+
+  <header id="header">
+    <div class="row real-fat-row">
+
+
+      <div class="col-md-12 text-center">
+        <p id="page-header">Darkca<i id="bolt" class="fa fa-bolt" aria-hidden="true"></i>ter</p>
+      </div>
+    </div>
+  </header>
+
+<div id="controls">
+  <div class="row fat-row">
+      <div class="col-md-12 text-center">
+
+
+              <input type="text" ng-model="Latitude" placeholder="Latitude">
+              <input type="text" ng-model="Longitude" placeholder="Longitude">
+
+      </div>
+
+  </div>
+<div class="row">
+    <div class="col-md-12 text-center">
+  <button class="btn btn-default btn-success ng-click="createLocation(Latitude, Longitude)>Get Weather</button>
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+
+
+      <!-- <span>Longitude: </span>
+      <input type="text" ng-model="newLocationLong"> -->
+
+
+      <ul>
+        <li ng-repeat="location in locations track by $index"></li>
+
+
+      </ul>
+    </div>
+  </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/controllers/home.controller.js"></script>
+  <script src="js/services/location.service.js"></script>
 </body>
 </html>

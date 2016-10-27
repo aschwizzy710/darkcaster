@@ -1,0 +1,34 @@
+#header {
+  background-color: black;
+}
+
+#page-header {
+  font-family: "Arial Black", Gadget, sans-serif;
+  color: black;
+  letter-spacing: 3px;
+  font-size: 70px;
+  text-shadow: 2px 2px 8px yellow;
+}
+
+#bolt {
+  color: yellow;
+}
+
+body {
+  background-color: black;
+}
+
+#controls {
+  position: relative;
+  top: 50%;
+  margin-top: -50px;
+}
+
+.fat-row {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.real-fat-row {
+margin-bottom: 200px;
+}

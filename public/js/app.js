@@ -1,3 +1,3 @@
 (function() {
-  angular.module('intro', []); //setter syntax  
+  angular.module('intro', []); //setter syntax
 }());
