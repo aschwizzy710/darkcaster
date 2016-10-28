@@ -1,5 +1,5 @@
 (function() {
-  angular.module('intro') // setter syntax --> starts the application
+  angular.module('forecast-app') // setter syntax --> starts the application
   .controller('HomeController', HomeController);
 
 HomeController.$inject = ['$scope']; // what tools the Home Controller needs to do service
