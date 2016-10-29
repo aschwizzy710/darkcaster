@@ -2,14 +2,18 @@
   angular.module('forecast-app') // setter syntax --> starts the application
   .controller('HomeController', HomeController);
 
-HomeController.$inject = ['$scope']; // what tools the Home Controller needs to do service
+HomeController.$inject = ['$scope', 'WeatherService']; // what tools the Home Controller needs to do service
 
-function HomeController($scope){ // $scope is our bridge to the DOM
+function HomeController($scope, WeatherService){ // $scope is our bridge to the DOM
   // $scope.locations = LocationService.get();
   $scope.createLocation = createLocation;
 
-  function createLocation(Latitude, Longitude){
-    console.log(Latitude, Longitude);
+  function createLocation(latitude, longitude){
+    WeatherService.createLocation(latitude, longitude)
+    .then(function(response){
+      $scope.weather = response.data;
+      debugger;
+    });
   }
   // function deleteLocation(index){
   //   LocationService.delete(index);
