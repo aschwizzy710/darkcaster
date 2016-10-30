@@ -29,10 +29,16 @@ body {
   margin-bottom: 30px;
 }
 
+.plump-row {
+  margin-top: 70px;
+  margin-bottom: 70px;
+}
+
 .real-fat-row {
 margin-bottom: 200px;
 }
 
 .current-weather {
   color: white;
+  padding-left: 108px;
 }
