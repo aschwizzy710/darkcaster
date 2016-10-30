@@ -34,7 +34,7 @@
   </div>
 <div class="row fat-row">
     <div class="col-md-12 text-center">
-  <button class="btn btn-default btn-success" ng-click="createLocation(latitude, longitude)">Get Weather</button>
+  <button class="btn btn-default btn-success" ng-click="createLocation(latitude, longitude)" value="Geocode">Get Weather</button>
 
     </div>
 
@@ -81,7 +81,11 @@
 
     </div>
 </div>
-
+<div id="map"></div>
+<!-- Replace the value of the key parameter with your own API key. -->
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHO6eM_R73GLFU4tAvPOHYn-6GwtgBCtI&callback=initMap">
+</script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
   <script src="js/app.js"></script>
   <script src="js/controllers/home.controller.js"></script>
