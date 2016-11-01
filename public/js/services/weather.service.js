@@ -8,24 +8,31 @@ function WeatherService($http){
     var secretToken = {
       secret: 'its a secret'
     };
-    var latitude;
-    var longitude;
-
-    var weatherData = [];
-
-  return {
-    weatherData: weatherData,
-    createLocation: createLocation
-  };
+    var lat;
+    var lon;
+    var service = {};
+    service.weatherData = [];
+    service.createLocation = createLocation;
+    return service;
+  //
+  //   var weatherData = [];
+  //
+  // return {
+  //   weatherData: weatherData,
+  //   createLocation: createLocation
+  // };
 
   function createLocation(latitude, longitude){
-    latitude = latitude;
-    longitude = longitude;
+    lat = latitude;
+    lon = longitude;
     var config = {
       headers: secretToken
     };
     var url = '/forecast/' + latitude + ',' + longitude;
-      return $http.get(url, config);
+      return $http.get(url, config)
+                  .then(function(response){
+                    service.weatherData = response.data;
+                  });
   }
 }
 })();
