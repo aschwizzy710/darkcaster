@@ -14,13 +14,7 @@ function WeatherService($http){
     service.weatherData = [];
     service.createLocation = createLocation;
     return service;
-  //
-  //   var weatherData = [];
-  //
-  // return {
-  //   weatherData: weatherData,
-  //   createLocation: createLocation
-  // };
+
 
   function createLocation(latitude, longitude){
     lat = latitude;
@@ -31,6 +25,7 @@ function WeatherService($http){
     var url = '/forecast/' + latitude + ',' + longitude;
       return $http.get(url, config)
                   .then(function(response){
+                    debugger;
                     service.weatherData = response.data;
                   });
   }
