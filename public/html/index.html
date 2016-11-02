@@ -97,16 +97,20 @@
 
   <!-- This is the minutely weather view portion -->
 
-  <div class="container minutely-weather text-center" ng-show="weather.flags">
+  <div class="container minutely-weather text-center" ng-show="weather.minutely">
     <ul>
-        <li ng-repeat="flag in weather.flags track by $index">{{ }}</li>
+        <li ng-repeat="minute in weather.minutely.data">
+          Prob: {{ minute.precipProbability * 100 | number:0 }}
+          Intensity: {{ minute.precipIntensity * 100 | number:0 }}
+          Date: {{ minute.time | date:"short" }}
+        </li>
     </ul>
   <div class="row">
     <div class="col-md-1">
-      <span ng-repeat="weatherData in weather.flags">Icon: <img ng-src="images/{{weather.minutely.icon}}.png" alt="{{weather.minutely.icon}}" class="img-responsive"></span>
+      <span ng-repeat="weatherData in weather.flags">Icon: <img ng-src="images/{{weather.minutely.data.icon}}.png" alt="{{weather.minutely.icon}}" class="img-responsive"></span>
     </div>
     <div class="col-md-9">
-        <h3 ng-repeat="flag in weather.flags">Summary: {{ weather.gfs.summary }}</h3>
+        <h3 ng-repeat="flag in weather.flags">Summary: {{ weather.minutely.data.summary }}</h3>
     </div>
     <!-- The following uses an Angular filter to format the date -->
     <div class="col-md-2"><strong>{{ weather.minutely.time * 1000 | date:"short"}}</strong></div>
