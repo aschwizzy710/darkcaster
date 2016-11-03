@@ -80,8 +80,11 @@
   <div class="container minutely-weather text-center" ng-show="weather.minutely">
 
       Latitude: {{ minuteLat }}
-      Longitude: {{ minuteLon }}
-
+      Longitude: {{ minuteLon }} <br>
+      <select name="singleSelect" ng-model="data.singleSelect">
+            <option value="option-1">Option 1</option>
+            <option value="option-2">Option 2</option>
+          </select><br>
   <div class="row">
     <div class="col-md-1">
       <span>Icon: <img ng-src="images/{{weather.minutely.icon}}.png" alt="{{weather.minutely.icon}}" class="img-responsive"></span>
