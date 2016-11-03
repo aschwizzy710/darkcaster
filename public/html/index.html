@@ -22,12 +22,14 @@
   </header>
 
   <div id="controls">
+
+
+
   <div class="row fat-row">
       <div class="col-md-12 text-center">
 
-
-              <input type="text" ng-model="latitude" placeholder="HomeLatitude">
-              <input type="text" ng-model="longitude" placeholder="HomeLongitude">
+              <input type="text" ng-model="latitude" placeholder="Latitude">
+              <input type="text" ng-model="longitude" placeholder="Longitude">
 
       </div>
 
@@ -45,14 +47,14 @@
   <!-- This is the current weather view portion -->
 
   <div class="container current-weather text-center" ng-show="weather.currently">
-    <!-- Latitude: {{ homeLat }}
-    Longitude: {{ homeLon }} -->
 
   <div class="row">
     <div class="col-md-1">
       Icon: <img ng-src="images/{{weather.currently.icon}}.png" alt="{{weather.currently.icon}}" class="img-responsive">
     </div>
     <div class="col-md-9">
+        Latitude: {{ homeLat }}
+        Longitude: {{ homeLon }}
         <h3>Summary: {{ weather.currently.summary }}</h3>
     </div>
     <!-- The following uses an Angular filter to format the date -->
@@ -79,23 +81,23 @@
 
   <div class="container minutely-weather text-center" ng-show="weather.minutely">
 
-      Latitude: {{ minuteLat }}
-      Longitude: {{ minuteLon }} <br>
-      <select name="singleSelect" ng-model="data.singleSelect">
-            <option value="option-1">Option 1</option>
-            <option value="option-2">Option 2</option>
-          </select><br>
   <div class="row">
     <div class="col-md-1">
       <span>Icon: <img ng-src="images/{{weather.minutely.icon}}.png" alt="{{weather.minutely.icon}}" class="img-responsive"></span>
     </div>
-    <div class="col-md-10">
+    <div class="col-md-9">
         <h3>Summary: {{ weather.minutely.summary }} </h3>
+    </div>
+    <div class="col-md-2">
+      <select ng-model="singleSelect" ng-options="(minute.time * 1000 | date:'short') for minute in weather.minutely.data" style="color:black" >
+
+      </select><br>
     </div>
   </div>
     <div class="row">
-      <div class="col-md-3" ng-repeat="minute in weather.minutely.data">
-        <p class="well" style="color:black">
+
+      <div class="col-md-4 col-md-offset-4" ng-repeat="minute in weather.minutely.data">
+        <p ng-show='singleSelect.time === minute.time' class="well" style="color:black">
           Time: {{ minute.time * 1000 | date:"shortTime" }} <br>
           Precip: {{ minute.precipProbability * 100 | number:0 }} %
           Intensity: {{ minute.precipIntensity * 100 | number:0 }} %
@@ -105,30 +107,6 @@
 </div>
   <!-- The above is for minutely weather only -->
 <div ng-controller="HourlyController">
-    <!-- <div id="controls">
-    <div class="row fat-row">
-        <div class="col-md-12 text-center">
-
-
-                <input type="text" ng-model="latitude" placeholder="Latitude">
-                <input type="text" ng-model="longitude" placeholder="Longitude">
-
-        </div>
-
-    </div>
-    <div class="row plump-row">
-      <div class="col-md-12 text-center">
-    <button class="btn btn-default btn-success" ng-click="createLocation(latitude, longitude)">Get Weather</button>
-
-      </div>
-
-    </div>
-
-
-
-    </div> -->
-
-    <!-- This is the hourly weather view portion -->
 
     <div class="container hourly-weather text-center" ng-show="weather.hourly">
 
