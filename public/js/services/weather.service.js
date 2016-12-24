@@ -25,7 +25,6 @@ function WeatherService($http){
       return $http.get(url, config)
                   .then(function(response){
                     service.weatherData = response.data;
-                    debugger;
                   });
   }
 }

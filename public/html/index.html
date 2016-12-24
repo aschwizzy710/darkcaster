@@ -47,15 +47,18 @@
   <!-- This is the current weather view portion -->
 
   <div class="container current-weather text-center" ng-show="weather.currently">
-
+    <div style="margin-right: 80px;">
+      Latitude: {{ homeLat }}
+      Longitude: {{ homeLon }}
+    </div>
+    <br>
+  <h1 style="margin-right:75px;">Current Weather</h1>
   <div class="row">
     <div class="col-md-1">
-      Icon: <img ng-src="images/{{weather.currently.icon}}.png" alt="{{weather.currently.icon}}" class="img-responsive">
+      <img ng-src="images/{{weather.currently.icon}}.png" alt="{{weather.currently.icon}}" class="img-responsive">
     </div>
     <div class="col-md-9">
-        Latitude: {{ homeLat }}
-        Longitude: {{ homeLon }}
-        <h3>Summary: {{ weather.currently.summary }}</h3>
+        <h3>{{ weather.currently.summary }}</h3>
     </div>
     <!-- The following uses an Angular filter to format the date -->
     <div class="col-md-2"><strong>{{ weather.currently.time * 1000 | date:"short"}}</strong></div>
@@ -80,13 +83,13 @@
   <!-- This is the minutely weather view portion -->
 
   <div class="container minutely-weather text-center" ng-show="weather.minutely">
-
+  <h1 style="margin-right: 70px;">Weather By The Minute</h1>
   <div class="row">
     <div class="col-md-1">
-      <span>Icon: <img ng-src="images/{{weather.minutely.icon}}.png" alt="{{weather.minutely.icon}}" class="img-responsive"></span>
+      <span><img ng-src="images/{{weather.minutely.icon}}.png" alt="{{weather.minutely.icon}}" class="img-responsive"></span>
     </div>
     <div class="col-md-9">
-        <h3>Summary: {{ weather.minutely.summary }} </h3>
+        <h3>{{ weather.minutely.summary }} </h3>
     </div>
     <div class="col-md-2">
       <select ng-model="singleSelect" ng-options="(minute.time * 1000 | date:'short') for minute in weather.minutely.data" style="color:black" >
@@ -109,26 +112,14 @@
 <div ng-controller="HourlyController">
 
     <div class="container hourly-weather text-center" ng-show="weather.hourly">
-
+    <h1 style="margin-right: 70px;">Hourly Forecast</h1>
     <div class="row">
       <div class="col-md-1">
-        Icon: <img ng-src="images/{{weather.hourly.icon}}.png" alt="{{weather.hourly.icon}}" class="img-responsive">
+        <img ng-src="images/{{weather.hourly.icon}}.png" alt="{{weather.hourly.icon}}" class="img-responsive">
       </div>
-      <div class="col-md-9">
-          <h3>Summary: {{ weather.hourly.summary }}</h3>
+      <div class="col-md-11">
+          <h3>{{ weather.hourly.summary }}</h3>
       </div>
-      <!-- The following uses an Angular filter to format the date -->
-      <div class="col-md-2"><strong>{{ weather.hourly.time * 1000 | date:"short"}}</strong></div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-3">
-        <p>Temperature: {{ weather.hourly.temperature | number: 0 }} &deg;F</p>
-      </div>
-      <div class="col-md-3 col-md-offset-6">
-        <p>Precipitation: {{ weather.hourly.precipProbability * 100 | number:0 }} %</p>
-      </div>
-    </div>
 
       </div>
   </div>

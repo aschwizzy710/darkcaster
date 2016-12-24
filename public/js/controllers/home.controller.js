@@ -21,7 +21,7 @@ function HomeController($scope, WeatherService){ // $scope is our bridge to the 
   });
 
   function createLocation(latitude, longitude){
-    
+
       WeatherService.createLocation(latitude, longitude);
   }
 
